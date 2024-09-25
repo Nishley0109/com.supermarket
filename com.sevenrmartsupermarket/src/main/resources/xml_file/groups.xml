@@ -1,0 +1,18 @@
+<suite name="group execution" thread-count="5" parallel="classes">
+	<listeners>
+		<listener
+			class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
+	<test name="login testing">
+		<groups>
+			<run>
+				<include name="Smoke"></include>
+			</run>
+		</groups>
+		<classes>
+		<class name="com.sevenrmartsupermarket.base.LoginTest"></class>
+		
+		<class name="com.sevenrmartsupermarket.base.SubCategoryTest"></class>
+		</classes>
+	</test>
+</suite>		

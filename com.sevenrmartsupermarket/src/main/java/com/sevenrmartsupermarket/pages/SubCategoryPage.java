@@ -32,7 +32,7 @@ public class SubCategoryPage {
 	WebElement enterSubCategoryElement;
 	@FindBy(xpath = "//input[@id='main_img']")
 	WebElement uploadImage;
-////button[contains(text(),'Save')]
+
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement saveButton;
 
@@ -81,9 +81,9 @@ public class SubCategoryPage {
 		return this;
 	}
 
-	public SubCategoryPage addSubCategory() {
+	public SubCategoryPage addSubCategory(String subcategory) {
 
-		enterSubCategoryElement.sendKeys("phone");
+		enterSubCategoryElement.sendKeys(subcategory);
 
 		return this;
 

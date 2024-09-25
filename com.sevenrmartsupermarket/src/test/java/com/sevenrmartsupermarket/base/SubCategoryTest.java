@@ -63,7 +63,7 @@ public class SubCategoryTest extends Base {
 
 		loginPage.login();
 		homePage.clickOnSubcategory();
-		subCategoryPage.clickOnNew().addCategory().addSubCategory().clickOnSave();
+		subCategoryPage.clickOnNew().addCategory().addSubCategory("phone").clickOnSave();
 		
 	}
 

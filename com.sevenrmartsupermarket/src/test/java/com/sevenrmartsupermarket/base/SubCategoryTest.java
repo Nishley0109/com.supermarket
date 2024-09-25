@@ -1,5 +1,7 @@
 package com.sevenrmartsupermarket.base;
 
+import static org.testng.Assert.assertEquals;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -44,7 +46,7 @@ public class SubCategoryTest extends Base {
 		subCategoryPage.getAllSubCategoryName();
 
 	}
-
+/** SubCategory Data Validation**/
 	@Test(groups = "Smoke")
 	public void verifyNewSubCategory() {
 
@@ -53,6 +55,20 @@ public class SubCategoryTest extends Base {
 
 		subCategoryPage = homePage.clickOnSubcategorywithReturn();
 		subCategoryPage.createSubCategory("Appliances", "Fridge");
+		
+		subCategoryPage.clickOnHome();
+		homePage.clickOnSubcategorywithReturn();
+		
+		String actualFirstValue=subCategoryPage.firstSubCategoryColValue();
+		System.out.println(actualFirstValue);
+		String expectedFirstValue="Fridge";
+		Assert.assertEquals(actualFirstValue, expectedFirstValue);
+		
+		String actualSectValue=subCategoryPage.secondSubCategoryColValue();
+		System.out.println(actualSectValue);
+		String expectedSecValue="Appliances";
+		Assert.assertEquals(actualSectValue, expectedSecValue);
+		
 	}
 
 	@Test(groups = "Smoke")
@@ -63,7 +79,7 @@ public class SubCategoryTest extends Base {
 
 		loginPage.login();
 		homePage.clickOnSubcategory();
-		subCategoryPage.clickOnNew().addCategory().addSubCategory("phone").clickOnSave();
+		subCategoryPage.clickOnNew().selectCategory().addSubCategory("iPad").clickOnSave();
 		
 	}
 

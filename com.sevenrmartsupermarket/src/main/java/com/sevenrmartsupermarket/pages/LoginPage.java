@@ -23,6 +23,10 @@ public class LoginPage {
 
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement signInButton;
+	
+	@FindBy(xpath = "//label[@for='remember']")
+	WebElement rememberMe;
+	
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
@@ -48,7 +52,12 @@ public class LoginPage {
 	public void signin() {
 		signInButton.click();
 	}
-
+	public Boolean rememberMeFun() {
+		Boolean value=rememberMe.isSelected();
+		return value;
+		
+	}
+	
 	public void login(String userName, String password) {
 		enterUserName(userName);
 		enterPassword(password);

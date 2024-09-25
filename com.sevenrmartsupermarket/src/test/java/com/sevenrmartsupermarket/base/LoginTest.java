@@ -42,6 +42,14 @@ public class LoginTest extends Base {
 		System.out.println(name1);
 
 	}
+	@Test(groups = "Smoke")
+	public void rememberMeCheck() {
+		loginpage = new LoginPage(driver);
+		Boolean actualValue = loginpage.rememberMeFun();
+		Boolean expectedValue= false;
+		Assert.assertEquals(actualValue, expectedValue);
+		
+	}
 
 	@Test(dataProvider = "loginDetails", dataProviderClass = Dataproviders.class)
 	public void verifyLoginDataProvider(String userName, String password) {

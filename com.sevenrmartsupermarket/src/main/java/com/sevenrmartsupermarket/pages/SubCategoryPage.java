@@ -41,6 +41,15 @@ public class SubCategoryPage {
 
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	WebElement alertMsg;
+	
+	@FindBy(xpath = "//table//tr[1]//td[1]")
+	WebElement firstColValue;
+	
+	@FindBy(xpath = "//table//tr[1]//td[2]")
+	WebElement secColValue;
+	
+	@FindBy(xpath = "//a[text()='Home']")
+	WebElement home;
 
 	public SubCategoryPage(WebDriver driver) {
 
@@ -63,13 +72,26 @@ public class SubCategoryPage {
 
 	}
 
+	public String firstSubCategoryColValue() {
+		return firstColValue.getText();
+
+	}
+	public String secondSubCategoryColValue() {
+		return secColValue.getText();
+
+	}
 	public SubCategoryPage clickOnNew() {
 
 		newSubCategory.click();
 		return this;
 
 	}
+	public SubCategoryPage clickOnHome() {
 
+		home.click();
+		return this;
+
+	}
 	public SubCategoryPage selectCategory() {
 
 		pageUtility.selectByIndex(selectCategoryElement, 7);
@@ -80,7 +102,8 @@ public class SubCategoryPage {
 		pageUtility.selectByVisibleText(enterSubCategoryElement, "Apple");
 		return this;
 	}
-
+	
+	
 	public SubCategoryPage addSubCategory(String subcategory) {
 
 		enterSubCategoryElement.sendKeys(subcategory);
@@ -99,12 +122,6 @@ public class SubCategoryPage {
 
 	}
 
-	/*
-	 * public void clickOnSave() {
-	 * 
-	 * //saveButton.click(); //pageUtility.mouseClick(saveButton);
-	 * pageUtility.scrollAndClick(saveButton); }
-	 */
 	public SubCategoryPage clickOnSave() {
 
 		waitutility = new WaitUtility(driver);

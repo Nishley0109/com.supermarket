@@ -14,6 +14,11 @@ public class HomePage {
 
 	@FindBy(xpath = "//div[@class='inner']//p[(text()='Sub Category')]//following::a[1]")
 	WebElement category;
+	@FindBy(xpath="//span[text()='7rmart supermarket']")
+	WebElement title;
+	
+	@FindBy(xpath="//p[text()='Admin Users']")
+	WebElement dashColName;
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -22,6 +27,13 @@ public class HomePage {
 
 	public String getProfileName() {
 		return profileName.getText();
+	}
+	public String getDashboardCol() {
+		return dashColName.getText();
+	}
+	
+	public String getTitle() {
+		return title.getText();
 	}
 
 	public void clickOnSubcategory() {

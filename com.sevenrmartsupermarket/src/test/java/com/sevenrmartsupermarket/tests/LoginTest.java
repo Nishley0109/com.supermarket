@@ -1,8 +1,9 @@
-package com.sevenrmartsupermarket.base;
+package com.sevenrmartsupermarket.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.constants.Dataproviders;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
@@ -43,16 +44,16 @@ public class LoginTest extends Base {
 
 	}
 	@Test(groups = "Smoke")
-	public void rememberMeCheck() {
+	public void rememberMeCheck() {// change name
 		loginpage = new LoginPage(driver);
-		Boolean actualValue = loginpage.rememberMeFun();
-		Boolean expectedValue= false;
+		boolean actualValue = loginpage.rememberMeFun();
+		boolean expectedValue= false;
 		Assert.assertEquals(actualValue, expectedValue);
 		
 	}
 
 	@Test(dataProvider = "loginDetails", dataProviderClass = Dataproviders.class)
-	public void verifyLoginDataProvider(String userName, String password) {
+	public void verifyLoginDataProvider(String userName, String password) {//tc name change 
 		loginpage = new LoginPage(driver);
 		loginpage.login(userName, password);
 

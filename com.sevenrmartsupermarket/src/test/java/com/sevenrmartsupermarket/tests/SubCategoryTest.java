@@ -1,4 +1,4 @@
-package com.sevenrmartsupermarket.base;
+package com.sevenrmartsupermarket.tests;
 
 import static org.testng.Assert.assertEquals;
 
@@ -36,7 +36,7 @@ public class SubCategoryTest extends Base {
 	}
 
 	@Test(groups = { "Smoke", "Regression" })
-	public void verifyAllSubCategorynames() {
+	public void verifyAllSubCategorynames() {//' Nme' change
 
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
@@ -62,7 +62,7 @@ public class SubCategoryTest extends Base {
 		String actualFirstValue=subCategoryPage.firstSubCategoryColValue();
 		System.out.println(actualFirstValue);
 		String expectedFirstValue="Fridge";
-		Assert.assertEquals(actualFirstValue, expectedFirstValue);
+		Assert.assertEquals(actualFirstValue, expectedFirstValue);// soft assert
 		
 		String actualSectValue=subCategoryPage.secondSubCategoryColValue();
 		System.out.println(actualSectValue);
@@ -72,7 +72,7 @@ public class SubCategoryTest extends Base {
 	}
 
 	@Test(groups = "Smoke")
-	public void enterSubCategoryInfo() {
+	public void enterSubCategoryInfo() {// change name
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		subCategoryPage = new SubCategoryPage(driver);

@@ -1,8 +1,9 @@
-package com.sevenrmartsupermarket.base;
+package com.sevenrmartsupermarket.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
@@ -11,7 +12,7 @@ public class HomeTest extends Base {
 	LoginPage loginpage;
 	HomePage homepage;
 	
-	@Test(groups = "Smoke")
+	@Test(groups = "Smoke")  // remove the tc
 	public void verifyLogin() {
 		loginpage = new LoginPage(driver);
 		loginpage.login("admin", "admin");
@@ -26,7 +27,7 @@ public class HomeTest extends Base {
 	}
 	
 	@Test
-	public void dashboardName()
+	public void dashboardName() // change name
 	{
 		loginpage = new LoginPage(driver);
 		loginpage.login("admin", "admin");

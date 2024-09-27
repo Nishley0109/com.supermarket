@@ -27,7 +27,7 @@ public class HomeTest extends Base {
 	}
 	
 	@Test
-	public void dashboardName() // change name in tc
+	public void dashboardName() // change name in tc of the 
 	{
 		loginpage = new LoginPage(driver);
 		loginpage.login("admin", "admin");

@@ -66,7 +66,7 @@ public class SubCategoryTest extends Base {
 		softAssert.assertEquals(actualSectValue, expectedSecValue);
 	}
 	@Test(groups = "Smoke")
-	public void enterSubCategoryInfo() {// change name
+	public void enterSubCategoryInfo() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		subCategoryPage = new SubCategoryPage(driver);

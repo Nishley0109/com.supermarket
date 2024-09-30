@@ -53,7 +53,7 @@ public class LoginPage {
 		signInButton.click();
 	}
 	public Boolean rememberMeFun() {
-		Boolean value=rememberMe.isSelected();
+		boolean value=rememberMe.isSelected();
 		return value;
 		
 	}

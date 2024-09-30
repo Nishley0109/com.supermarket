@@ -41,22 +41,20 @@ public class LoginTest extends Base {
 
 		String name1 = GeneralUtility.getRandomUserName();
 		System.out.println(name1);
-
+	}
+	@Test(dataProvider = "loginDetails", dataProviderClass = Dataproviders.class)
+	public void verifyLoginData(String userName, String password) {
+		loginpage = new LoginPage(driver);
+		loginpage.login(userName, password);
 	}
 	@Test(groups = "Smoke")
-	public void rememberMeCheck() {// change name
+	public void rememberMeCheckBox() {
 		loginpage = new LoginPage(driver);
 		boolean actualValue = loginpage.rememberMeFun();
 		boolean expectedValue= false;
 		Assert.assertEquals(actualValue, expectedValue);
-		
 	}
 
-	@Test(dataProvider = "loginDetails", dataProviderClass = Dataproviders.class)
-	public void verifyLoginDataProvider(String userName, String password) {//tc name change 
-		loginpage = new LoginPage(driver);
-		loginpage.login(userName, password);
-
-	}
+	
 
 }

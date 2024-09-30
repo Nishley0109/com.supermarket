@@ -12,22 +12,8 @@ public class HomeTest extends Base {
 	LoginPage loginpage;
 	HomePage homepage;
 	
-	@Test(groups = "Smoke")  // remove the tc
-	public void verifyLogin() {
-		loginpage = new LoginPage(driver);
-		loginpage.login("admin", "admin");
-
-		homepage = new HomePage(driver);
-
-		String actualTitle = homepage.getTitle();
-		System.out.println(actualTitle);
-		String expectedTitle = "7rmart supermarket";
-		Assert.assertEquals(actualTitle, expectedTitle);
-		
-	}
-	
-	@Test
-	public void dashboardName() // change name in tc of the 
+	@Test(groups = "Smoke") 
+	public void dashBoardView() 
 	{
 		loginpage = new LoginPage(driver);
 		loginpage.login("admin", "admin");
@@ -39,6 +25,31 @@ public class HomeTest extends Base {
 		String expectedDashboard = "Admin Users";
 		Assert.assertEquals(actualDashboard, expectedDashboard);
 	}
+	@Test(groups = { "Smoke", "Regression" })
+	public void dashBoardTitle() 
+	{
+		loginpage = new LoginPage(driver);
+		loginpage.login("admin", "admin");
 
+		homepage = new HomePage(driver);
+		
+		String actualTitle = homepage.getTitle();
+		System.out.println(actualTitle);
+		String expectedTitle = "7rmart supermarket";
+		Assert.assertEquals(actualTitle, expectedTitle);
+	}
+	@Test(groups = "Smoke") 
+	public void dashBoardProfileName() 
+	{
+		loginpage = new LoginPage(driver);
+		loginpage.login("admin", "admin");
+
+		homepage = new HomePage(driver);
+		
+		String actualProfile = homepage.getProfileName();
+		System.out.println(actualProfile);
+		String expectedProfile = "Admin";
+		Assert.assertEquals(actualProfile, expectedProfile);
+	}
 
 }

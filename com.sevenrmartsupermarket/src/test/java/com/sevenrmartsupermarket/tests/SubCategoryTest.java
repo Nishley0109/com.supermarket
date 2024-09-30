@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.relevantcodes.extentreports.model.ScreenCapture;
 import com.sevenrmartsupermarket.base.Base;
@@ -20,6 +21,7 @@ public class SubCategoryTest extends Base {
 	LoginPage loginPage;
 	HomePage homePage;
 	SubCategoryPage subCategoryPage;
+	SoftAssert softAssert = new SoftAssert();
 
 	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void verifySubCategoryHeader() {
@@ -34,9 +36,8 @@ public class SubCategoryTest extends Base {
 		String expectedHeader = "List Sub Categories";
 		Assert.assertEquals(actualHeader, expectedHeader);
 	}
-
 	@Test(groups = { "Smoke", "Regression" })
-	public void verifyAllSubCategorynames() {//' Nme' change
+	public void verifyAllSubCategoryNames() {
 
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
@@ -44,43 +45,33 @@ public class SubCategoryTest extends Base {
 		loginPage.login();
 		homePage.clickOnSubcategory();
 		subCategoryPage.getAllSubCategoryName();
-
 	}
-/** SubCategory Data Validation**/
+	/** SubCategory Data Validation **/
 	@Test(groups = "Smoke")
 	public void verifyNewSubCategory() {
 
 		loginPage = new LoginPage(driver);
 		homePage = loginPage.loginFunction();
-
 		subCategoryPage = homePage.clickOnSubcategorywithReturn();
 		subCategoryPage.createSubCategory("Appliances", "Fridge");
-		
 		subCategoryPage.clickOnHome();
 		homePage.clickOnSubcategorywithReturn();
-		
-		String actualFirstValue=subCategoryPage.firstSubCategoryColValue();
+		String actualFirstValue = subCategoryPage.firstSubCategoryColValue();
 		System.out.println(actualFirstValue);
-		String expectedFirstValue="Fridge";
-		Assert.assertEquals(actualFirstValue, expectedFirstValue);// soft assert
-		
-		String actualSectValue=subCategoryPage.secondSubCategoryColValue();
+		String expectedFirstValue = "Fridge";
+		String actualSectValue = subCategoryPage.secondSubCategoryColValue();
 		System.out.println(actualSectValue);
-		String expectedSecValue="Appliances";
-		Assert.assertEquals(actualSectValue, expectedSecValue);
-		
+		String expectedSecValue = "Appliances";
+		softAssert.assertEquals(actualFirstValue, expectedFirstValue);
+		softAssert.assertEquals(actualSectValue, expectedSecValue);
 	}
-
 	@Test(groups = "Smoke")
 	public void enterSubCategoryInfo() {// change name
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		subCategoryPage = new SubCategoryPage(driver);
-
 		loginPage.login();
 		homePage.clickOnSubcategory();
 		subCategoryPage.clickOnNew().selectCategory().addSubCategory("iPad").clickOnSave();
-		
 	}
-
 }

@@ -13,7 +13,7 @@ public class HomeTest extends Base {
 	HomePage homepage;
 	
 	@Test(groups = "Smoke") 
-	public void dashBoardView() 
+	public void verifyDashBoardColumn() 
 	{
 		loginpage = new LoginPage(driver);
 		loginpage.login("admin", "admin");
@@ -26,7 +26,7 @@ public class HomeTest extends Base {
 		Assert.assertEquals(actualDashboard, expectedDashboard);
 	}
 	@Test(groups = { "Smoke", "Regression" })
-	public void dashBoardTitle() 
+	public void verifyDashBoardTitle() 
 	{
 		loginpage = new LoginPage(driver);
 		loginpage.login("admin", "admin");

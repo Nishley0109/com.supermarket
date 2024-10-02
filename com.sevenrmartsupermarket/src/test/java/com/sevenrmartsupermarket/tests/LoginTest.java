@@ -35,10 +35,6 @@ public class LoginTest extends Base {
 		String actualProfileName = homepage.getProfileName();
 		String expectedProfileName = "Admin";
 		Assert.assertEquals(actualProfileName, expectedProfileName);
-
-		String name = GeneralUtility.getRandomFirstName();
-		System.out.println(name);
-
 		String name1 = GeneralUtility.getRandomUserName();
 		System.out.println(name1);
 	}
@@ -54,7 +50,4 @@ public class LoginTest extends Base {
 		boolean expectedValue= false;
 		Assert.assertEquals(actualValue, expectedValue);
 	}
-
-	
-
 }

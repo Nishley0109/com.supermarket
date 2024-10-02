@@ -12,7 +12,6 @@ import com.sevenrmartsupermarket.listeners.RetryAnalyzer;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
 import com.sevenrmartsupermarket.pages.SubCategoryPage;
-//import com.sevenrmartsupermarket.utilities.ScreenShotCapture;
 import com.sevenrmartsupermarket.utilities.ScreenShotCapture;
 import com.sevenrmartsupermarket.utilities.WaitUtility;
 
@@ -64,14 +63,27 @@ public class SubCategoryTest extends Base {
 		String expectedSecValue = "Appliances";
 		softAssert.assertEquals(actualFirstValue, expectedFirstValue);
 		softAssert.assertEquals(actualSectValue, expectedSecValue);
+		softAssert.assertAll();
 	}
 	@Test(groups = "Smoke")
-	public void enterSubCategoryInfo() {
+	public void verfySubCategoryEntry() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		subCategoryPage = new SubCategoryPage(driver);
 		loginPage.login();
 		homePage.clickOnSubcategory();
-		subCategoryPage.clickOnNew().selectCategory().addSubCategory("iPad").clickOnSave();
+		subCategoryPage.clickOnNew().selectCategory().addSubCategory("iPad1").clickOnSave();
+		
+		subCategoryPage.clickOnHome();
+		homePage.clickOnSubcategorywithReturn();
+		String actualFirstValue = subCategoryPage.firstSubCategoryColValue();
+		System.out.println(actualFirstValue);
+		String expectedFirstValue = "iPad1";
+		String actualSectValue = subCategoryPage.secondSubCategoryColValue();
+		System.out.println(actualSectValue);
+		String expectedSecValue = "Appliances";
+		softAssert.assertEquals(actualFirstValue, expectedFirstValue);
+		softAssert.assertEquals(actualSectValue, expectedSecValue);
+		softAssert.assertAll();
 	}
 }
